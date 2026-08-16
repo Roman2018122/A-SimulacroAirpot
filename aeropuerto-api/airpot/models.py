@@ -28,7 +28,7 @@ class Flight(models.Model):
             default=Status.SCHEDULED
         )
     departure_time = models.DateTimeField()
-    creado_en = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return f"{self.gate_id.code} {self.flight_number} ({self.destination})"
