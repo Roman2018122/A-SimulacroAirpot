@@ -40,7 +40,7 @@ class FlightEventsSerializer(serializers.Serializer):
     event_type = serializers.ChoiceField(
             choices=EventType.CHOICES,
             default=EventType.CREATED )
-    Source = serializers.ChoiceField(
+    source = serializers.ChoiceField(
                 choices=Source.CHOICES,
                 default=Source.WEB )
     note = serializers.CharField(required=False, allow_blank=True)
