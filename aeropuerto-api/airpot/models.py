@@ -31,4 +31,4 @@ class Flight(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
-        return f"{self.gate_id.code} {self.flight_number} ({self.destination})"
+        return f"{self.gate.code} {self.flight_number} ({self.destination})"

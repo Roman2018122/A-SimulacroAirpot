@@ -15,11 +15,11 @@ class GateViewSet(viewsets.ModelViewSet):
     ordering_fields = ["id", "code", "terminal", "is_available", "created_at"]
 
 class FlightViewSet(viewsets.ModelViewSet):
-    queryset = Flight.objects.select_related("gate").all().order_by("-id")
+    queryset = Flight.objects.select_related("gate_id").all().order_by("-id")
     serializer_class = FlightSerializer
     permission_classes = [IsAdminOrReadOnly]
     filter_backends = [DjangoFilterBackend, SearchFilter, OrderingFilter]
-    filterset_fields = ["code"]
+    filterset_fields = ["gate_id"]
     search_fields = ["gate_id", "flight_number", "destination", "status"]
     ordering_fields = ["id","gate_id", "flight_number", "destination", "status",  "departure_time", "created_at" ]
 

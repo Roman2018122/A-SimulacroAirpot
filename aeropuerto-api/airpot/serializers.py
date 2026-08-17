@@ -7,8 +7,8 @@ class GateSerializer(serializers.ModelSerializer):
         fields = ["id", "code", "terminal", "is_available", "created_at"]
 
 class FlightSerializer(serializers.ModelSerializer):
-    marca_nombre = serializers.CharField(source="marca.nombre", read_only=True)
+    gate_code = serializers.CharField(source="gate_id.code", read_only=True)
 
     class Meta:
         model = Flight
-        fields = ["id", "gate_id", "flight_number", "destination", "departure_time", "creado_en"]
+        fields = ["id", "gate_id", "gate_code", "flight_number", "destination", "status", "departure_time", "created_at"]
